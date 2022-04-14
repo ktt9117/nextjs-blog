@@ -4,9 +4,10 @@ import Layout, { siteTitle } from '../components/layout'
 import { getSortedPostsData } from '../lib/posts'
 import styles from "../styles/utils.module.css"
 import Date from "../components/date"
+import { GetStaticProps } from 'next'
 
 // This code only running at the server and it is not contained on the browser script code
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
   return {
     props: {
@@ -15,8 +16,13 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ allPostsData }) {
-
+export default function Home({ allPostsData }: {
+  allPostsData: {
+    date: string
+    title: string
+    id: string
+  }[]
+}) {
   return (
     <Layout home>
       <Head>
