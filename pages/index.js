@@ -1,4 +1,4 @@
-import Head from 'next/Head'
+import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import { getSortedPostsData } from '../lib/posts'
